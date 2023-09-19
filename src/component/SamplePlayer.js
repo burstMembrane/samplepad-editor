@@ -48,50 +48,57 @@ class SamplePlayerComponent extends React.Component {
       </div>
     )
   }
-
-  stopSample() {
-    for (let i = 0; i < this.state.wavStack.length; i++) {
-      wav.stopWavFile(this.state.wavStack[i])
-    }
+  async stopSample() {
+    const stopPromises = this.state.wavStack.map(wavId => wav.stopWavFile(wavId));
+    await Promise.all(stopPromises);
 
     this.setState({
       playingSample: false,
       wavStack: []
-    })
+    });
   }
+  async playSample() {
+    const wavId = uuidv1();
 
-  playSample() {
-    let wavId = uuidv1()
+    this.setState(prevState => ({
+      playingSample: true,
+      wavStack: [...prevState.wavStack, wavId]
+    }));
 
-    this.setState(update(this.state, {
-      playingSample: {$set: true},
-      wavStack: {$push: [wavId]}
-    }))
-
-    wav.playWavFile(wavId,SampleStore.getFileNameOnDisk(this.props.sampleFile))
-      .then(() => {
-        this.setState(update(this.state, {
-          playingSample: {$set: (this.state.wavStack.length > 1)},
-          wavStack: {$splice: [[this.state.wavStack.indexOf(wavId), 1]]}
-        }))
-      })
+    try {
+      await wav.playWavFile(wavId, SampleStore.getFileNameOnDisk(this.props.sampleFile));
+      this.setState(prevState => {
+        const wavIndex = prevState.wavStack.indexOf(wavId);
+        if (wavIndex > -1) {
+          const newWavStack = [...prevState.wavStack];
+          newWavStack.splice(wavIndex, 1);
+          return {
+            playingSample: newWavStack.length > 0,
+            wavStack: newWavStack
+          };
+        }
+        return prevState;
+      });
+    } catch (error) {
+      console.error("Error playing sample:", error);
+    }
   }
-
-  playOrStopSample() {
+  async playOrStopSample() {
     if (this.state.playingSample) {
-      this.stopSample()
-      return
+      // If you want to stop all samples when a new one is played, uncomment the next line
+      await this.stopSample();
+      // If you want to allow multiple samples to play at once, leave it commented out
     }
 
-    this.playSample()
+    await this.playSample();
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
     if (this.props.midi) {
       if (prevProps.sampleFile !== this.props.sampleFile ||
-          prevProps.midi.note !== this.props.midi.note ||
-          prevProps.midi.min !== this.props.midi.min ||
-          prevProps.midi.max !== this.props.midi.max) {
+        prevProps.midi.note !== this.props.midi.note ||
+        prevProps.midi.min !== this.props.midi.min ||
+        prevProps.midi.max !== this.props.midi.max) {
 
         this.removeMidiHandler(prevProps.midi.note)
         this.addMidiHandler()
@@ -107,8 +114,8 @@ class SamplePlayerComponent extends React.Component {
 
   addMidiHandler() {
     if (this.props.sampleFile && this.props.midi) {
-      midi.addMidiNoteOnHandler(this.handlerId, this.props.midi.note, this.props.midi.min, this.props.midi.max, (e) => {
-        this.playSample()
+      midi.addMidiNoteOnHandler(this.handlerId, this.props.midi.note, this.props.midi.min, this.props.midi.max, async (e) => {
+        await this.playSample()
       })
     }
   }
