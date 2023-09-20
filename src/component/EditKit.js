@@ -9,7 +9,9 @@ import { saveKit, updateKitName } from 'actions/kit'
 /* Component imports */
 import SamplerackEditor from 'component/Editor/Samplerack'
 import SamplepadProEditor from 'component/Editor/SamplepadPro'
+
 import 'css/EditKit.css'
+import ImageOverlay from 'component/ImageOverlay';
 
 const EditKit = (props) => {
   let kitNameControlProps = {};
@@ -23,6 +25,7 @@ const EditKit = (props) => {
   return (
 
     <div className="kit">
+
       <div className="is-size-3">Kit: {props.originalKitName}</div>
       <div className="field is-grouped">
         <div {...kitNameControlProps} className={"control " + ((props.hasKitNameError) ? 'has-tooltip-bottom' : '')}>
@@ -47,7 +50,11 @@ const EditKit = (props) => {
       }
 
       {props.showSamplepadProEditor &&
-        <SamplepadProEditor kitId={props.kitId} />
+        <>
+          <ImageOverlay props={props} />
+          <SamplepadProEditor kitId={props.kitId} />
+
+        </>
       }
     </div>
 
