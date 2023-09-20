@@ -32,7 +32,7 @@ const PadLayerAComponent = (props) => {
         <div className="level-left">
           <PadNameComponent
             padName={padName}
-            padClass={"has-background-grey-lighter"}
+
             midi={midiProps} />
 
           <div className="level-item MidiNote">
@@ -58,8 +58,8 @@ const PadLayerAComponent = (props) => {
           </div>
         </div>
 
-        <div className="level-right">
-          <div className="level-item">
+        <div className="level-right ">
+          <div className="level-item is-fullwidth">
             <KnobComponent
               min={-4}
               max={4}

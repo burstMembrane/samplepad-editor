@@ -1,13 +1,12 @@
 .Pad {
-
   .level {
-    margin-bottom:0 !important;
+    margin-bottom: 0 !important;
   }
 
   .layerA {
     .padName {
       width: 9em;
-      padding: .5em;
+      padding: 0.5em;
       border-radius: 5px;
     }
   }
@@ -30,7 +29,7 @@
 
       select {
         padding-left: 2em !important;
-        padding-right: .25em !important;
+        padding-right: 0.25em !important;
       }
       .select::after {
         display: none !important;
@@ -46,12 +45,6 @@
 
   .PadLayer .level-right {
     .modeIcon {
-      padding-left: .2em;
-
-      select {
-        padding-left: .25em !important;
-        padding-right: .25em !important;
-      }
       .select::after {
         display: none !important;
       }
@@ -60,7 +53,7 @@
     .layerBIcon {
       cursor: pointer;
       width: 1.5em;
-      padding: .2em 0 0 .4em;
+      padding: 0.2em 0 0 0.4em;
     }
 
     .value {
@@ -80,16 +73,15 @@
 
     .padName {
       width: 12.9em;
-      padding: .5em;
+      padding: 0.5em;
       border-radius: 5px;
       text-align: right;
     }
   }
 
-
   .Sample {
     width: 50%;
-    border: 1px solid #FBFBFF;
+
     border-radius: 5px;
 
     > div {
@@ -106,7 +98,7 @@
 
       .panel-block.sample {
         border-radius: 6px;
-        padding: .2em .5em;
+        padding: 0.2em 0.5em;
         width: 100%;
       }
 
@@ -125,19 +117,21 @@
       .removeSample {
         display: none;
         position: absolute;
-        top: .3em;
+        top: 0.3em;
         right: -2em;
       }
     }
   }
 
   @media (min-width: 950px) {
-    .PadLayer .level-left, .Sample {
+    .PadLayer .level-left,
+    .Sample {
       width: 55%;
     }
   }
   @media (min-width: 1000px) {
-    .PadLayer .level-left, .Sample {
+    .PadLayer .level-left,
+    .Sample {
       width: 60%;
     }
   }
@@ -146,7 +140,7 @@
     position: relative;
     width: 100%;
     height: 100%;
-    margin-bottom: .24em;
+    margin-bottom: 0.24em;
   }
   .sampleDropHighlight {
     position: absolute;

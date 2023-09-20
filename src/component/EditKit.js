@@ -21,36 +21,36 @@ const EditKit = (props) => {
   }
 
   return (
-    <section>
-      <div className="kit">
-        <div className="is-size-3">Kit: {props.originalKitName}</div>
-        <div className="field is-grouped">
-          <div {...kitNameControlProps} className={"control " + ((props.hasKitNameError) ? 'has-tooltip-bottom' : '')}>
-            <input
-              type="text"
-              className={"input kitName " + ((props.hasKitNameError) ? 'is-danger' : '')}
-              value={props.kitName}
-              onChange={(e) => props.updateKitName(e.target.value)} />
-          </div>
 
-          <div className="buttons control">
-            <button className="button is-info" onClick={props.saveKit}>Save Kit</button>
-            {
-              props.showSaveAsNew &&
-              <button className="button" onClick={props.saveNewKit}>Save as New Kit</button>
-            }
-          </div>
+    <div className="kit">
+      <div className="is-size-3">Kit: {props.originalKitName}</div>
+      <div className="field is-grouped">
+        <div {...kitNameControlProps} className={"control " + ((props.hasKitNameError) ? 'has-tooltip-bottom' : '')}>
+          <input
+            type="text"
+            className={"input kitName " + ((props.hasKitNameError) ? 'is-danger' : '')}
+            value={props.kitName}
+            onChange={(e) => props.updateKitName(e.target.value)} />
         </div>
 
-        { props.showSamplerackEditor &&
-          <SamplerackEditor kitId={props.kitId} />
-        }
-
-        { props.showSamplepadProEditor &&
-          <SamplepadProEditor kitId={props.kitId} />
-        }
+        <div className="buttons control">
+          <button className="button is-info" onClick={props.saveKit}>Save Kit</button>
+          {
+            props.showSaveAsNew &&
+            <button className="button" onClick={props.saveNewKit}>Save as New Kit</button>
+          }
+        </div>
       </div>
-    </section>
+
+      {props.showSamplerackEditor &&
+        <SamplerackEditor kitId={props.kitId} />
+      }
+
+      {props.showSamplepadProEditor &&
+        <SamplepadProEditor kitId={props.kitId} />
+      }
+    </div>
+
   );
 }
 
@@ -77,7 +77,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       dispatch(saveKit(ownProps.kitId, true));
     },
     updateKitName: (value) => {
-      dispatch(updateKitName(ownProps.kitId,  value));
+      dispatch(updateKitName(ownProps.kitId, value));
     }
   }
 }

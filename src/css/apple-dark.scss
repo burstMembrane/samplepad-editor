@@ -1,0 +1,233 @@
+// material-dark.scss
+
+// Import Bulma
+@import "../node_modules/bulma/bulma.sass";
+
+// Override Bulma variables to Apple Dark Mode colors
+$primary: #2b2b2b; // Apple dark grey
+$primary-invert: findColorInvert($primary);
+$dark: #1e1e1e; // Apple dark background
+$bg-dark: #2c2c2e; // Apple dark secondary background
+$grey-darker: #3a3a3c;
+$grey-dark: #2c2c2e;
+$grey: #3a3a3c;
+$grey-light: #48484a;
+$grey-lighter: #636366;
+$white: #d6d6d6;
+$black: #000000;
+$light: #e0e0e0;
+$light-invert: findColorInvert($light);
+$text: #d0d0d0;
+
+// Apply Apple Dark Mode styles
+html,
+body {
+  background-color: $dark;
+  color: $text;
+}
+
+// Customize navbar
+.navbar {
+  background-color: $grey-dark;
+  color: $text;
+}
+
+// Define Apple Dark Mode colors
+$dark-background: #1e1e1e; // Apple dark background
+$outline-border-color: #2c2c2e; // Slightly lighter grey for the border
+
+// Customize buttons for Apple Dark Mode
+.button {
+  border: 1px solid $outline-border-color;
+  border-radius: 8px; // Rounded corners, typical in Apple design
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); // Optional: subtle shadow for depth
+  background-color: $primary;
+  color: $primary-invert;
+  transition:
+    background-color 0.3s,
+    color 0.3s; // Smooth transition for hover effects
+
+  &:hover {
+    background-color: darken($primary, 5%); // Slightly darker on hover
+    color: lighten($primary-invert, 20%); // Slightly lighter text on hover
+  }
+
+  &.is-primary {
+    background-color: $primary;
+    color: $primary-invert;
+
+    &:hover {
+      background-color: darken($primary, 5%); // Slightly darker on hover
+      color: lighten($primary-invert, 20%); // Slightly lighter text on hover
+    }
+  }
+
+  &.is-info {
+    background-color: $grey;
+    color: $primary-invert;
+
+    &:hover {
+      background-color: darken($grey, 5%);
+      color: lighten($primary-invert, 5%);
+    }
+  }
+
+  &.is-link.is-outlined,
+  &.is-outlined {
+    color: $grey-lighter;
+    border-color: $grey-lighter;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
+    &:hover {
+      background-color: darken($grey-lighter, 5%); // Darken background
+      color: lighten($grey-lighter, 20%); // Lighten text
+    }
+  }
+}
+.panel-block {
+  border-bottom: none !important;
+}
+
+.sampleContainer:hover {
+  width: 100%;
+
+  background-color: darken($primary, 5%); // Slightly darker on hover
+  color: lighten($primary-invert, 20%); // Slightly lighter text on hover
+}
+.level-item {
+  outline: none;
+  border: none;
+}
+// Invert glyph icons
+.glyphicon {
+  background-color: $primary;
+  color: $text;
+  border: 0;
+  .value {
+    color: #e0e0e0;
+  }
+}
+
+// Customize hero
+$hero-dark-background-color: $bg-dark;
+$hero-dark-color: $white;
+
+.hero-body {
+  background-color: $hero-dark-background-color;
+  color: $hero-dark-color;
+}
+
+// Customize panel
+$panel-dark-background-color: $bg-dark;
+$panel-dark-color: $white;
+$panel-dark-border-color: $grey;
+
+.Pad {
+  padding: 0;
+  margin: 0 0.5em;
+}
+.select {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); // Optional: subtle shadow for depth
+  &.is-small {
+    background-color: $grey-dark;
+    border-color: $grey-dark;
+    color: $primary-invert;
+    text-align: center;
+  }
+}
+.select {
+  .control {
+    background-color: $grey-dark;
+    border-color: $grey-dark;
+    color: $primary-invert;
+  }
+
+  select {
+    border: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); // Optional: subtle shadow for depth
+    background-color: $grey-dark;
+    color: $primary-invert;
+  }
+}
+
+// search box
+.input {
+  background-color: $grey-dark;
+  border-color: $grey-dark;
+  color: $primary-invert;
+}
+
+.panel {
+  background-color: $panel-dark-background-color;
+  color: $panel-dark-color;
+  border-color: $panel-dark-border-color;
+
+  // Style panel heading
+  .panel-heading {
+    background-color: $panel-dark-border-color;
+    color: $panel-dark-color;
+  }
+
+  // Style panel tabs if any
+  .panel-tabs a {
+    color: $panel-dark-color;
+
+    &.is-active {
+      border-bottom-color: $panel-dark-color;
+    }
+  }
+}
+
+.level-item.Sample {
+  border: none;
+  outline: none;
+}
+
+.mgrpIcon {
+  background-color: $grey-dark;
+  border-color: $grey-dark;
+  color: $primary-invert;
+}
+
+.padOpts {
+  min-width: 30em;
+  flex-grow: 1;
+}
+
+// Custom styles to make level-right take up full available width
+.level {
+  &.level-right {
+    flex-grow: 1;
+    justify-content: space-evenly;
+    &.value {
+      color: $text !important;
+      font-size: 12px !important;
+      z-index: 300;
+    }
+    .glyphicon {
+      background-color: transparent;
+      margin: 0 0.5em;
+    }
+  }
+}
+
+// Customize scrollbars
+$scrollbar-thumb-color: #48484a;
+$scrollbar-track-color: #2c2c2e;
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $scrollbar-thumb-color;
+}
+
+::-webkit-scrollbar-track {
+  background-color: $scrollbar-track-color;
+}
+
+// For Firefox
+* {
+  scrollbar-color: $scrollbar-thumb-color $scrollbar-track-color;
+}

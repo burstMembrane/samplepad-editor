@@ -14,7 +14,19 @@ button.link {
   padding-top: 2em;
   text-align: center;
 }
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden; /* Disable scrolling */
+}
 
-@import 'bulma.min.css';
-@import 'bulma-tooltip.min.css';
-@import 'icons.css';
+/* If you have a root div where your React app is injected */
+#root {
+  height: 100%;
+}
+@import "bulma.min.css";
+@import "bulma-tooltip.min.css";
+@import "icons.css";
+@import "apple-dark.css";
