@@ -43,7 +43,7 @@ class SampleList extends React.Component {
               </div>
 
               <div className="level-right">
-                <i className="is-size-7">({this.props.samples ? this.props.samples.length : 0}/{Drive.MAX_SAMPLES})</i>
+                <p className="is-size-7">({this.props.samples ? this.props.samples.length : 0}/{Drive.MAX_SAMPLES})</p>
               </div>
 
               <button className="glyphicon glyphicon-trash" onClick={this.props.clear} />

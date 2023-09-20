@@ -1,0 +1,15 @@
+.imageOverlay {
+  margin: 0 auto;
+  filter: blur();
+  align-self: center;
+}
+
+.overlayContainer {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/*# sourceMappingURL=imageOverlay.css.map */
