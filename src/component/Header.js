@@ -15,8 +15,11 @@ const HeaderComponent = (props) => {
       <div className="hero-body">
         <div className="container">
           <div className="level">
+
             <div className="level-left">
               <div className="level-item">
+
+
                 <h1 className="title">
                   SamplePad Kit Editor
                   <div className="is-size-7">Model: {props.deviceType}</div>
@@ -41,10 +44,10 @@ const mapStateToProps = (state, ownProps) => {
   let deviceType = "";
   switch (state.drive.deviceType) {
     case DeviceType.SAMPLEPAD_PRO:
-      deviceType = "SAMPLEPAD PRO";
+      deviceType = "Samplepad Pro";
       break;
     case DeviceType.SAMPLERACK:
-      deviceType = "SAMPLERACK";
+      deviceType = "Samplerack";
       break;
     default:
       deviceType = "";
