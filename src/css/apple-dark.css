@@ -10300,6 +10300,7 @@ body {
   background-color: #2b2b2b;
   color: #fff;
   transition: background-color 0.3s, color 0.3s;
+  outline: none;
 }
 .button:hover {
   background-color: #1e1e1e;
@@ -10313,6 +10314,14 @@ body {
   background-color: #1e1e1e;
   color: white;
 }
+.button.is-small {
+  background-color: #3a3a3c;
+  color: #fff;
+}
+.button.is-small:hover {
+  background-color: #2d2d2f;
+  color: white;
+}
 .button.is-info {
   background-color: #3a3a3c;
   color: #fff;
@@ -10320,6 +10329,7 @@ body {
 .button.is-info:hover {
   background-color: #2d2d2f;
   color: white;
+  border: none;
 }
 .button.is-link.is-outlined, .button.is-outlined {
   color: #636366;

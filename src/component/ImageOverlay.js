@@ -12,7 +12,7 @@ import { DragItemTypes } from 'const';
 import SamplePlayerComponent from 'component/SamplePlayer'
 
 const originalWidth = 3000;  // Replace with the original width of your image
-const desiredWidth = 512;  // Set the desired width for scaling
+const desiredWidth = 640;  // Set the desired width for scaling
 const scalingFactor = desiredWidth / originalWidth;
 
 const scaleCoords = coords => coords.map(coord => Math.floor(coord * scalingFactor));
@@ -63,25 +63,26 @@ const ImageOverlay = (props) => {
 
     };
 
-    // useEffect(() => {
-    //     setTimeout(() => {
-    //         console.log("Loading samples to pads")
-    //         for (const pad in props.pads) {
-    //             // get the pad from the props
-    //             const padID = props.pads[pad].padType
-    //             let area = MAP.areas.find(area => area.id === padID);
+    useEffect(() => {
 
-    //             if (area) {
+        console.log("Loading samples to pads")
+        console.log(props)
+        let padSamples = {}
+        for (const pad in props.pads) {
+            // get the pad from the props
+            const padID = props.pads[pad].padType
+            let area = MAP.areas.find(area => area.id === padID);
 
-    //                 addSample(padID, area, props.pads[pad].fileName)
-    //             }
+            if (area) {
+                console.log(props.pads[pad].fileName)
+                area.preFillColor = layer === 'layerA' ? "rgba(0, 255, 255, 0.2)" : "rgba(255, 0, 0, 0.2)";
+                padSamples[area.id] = props.pads[pad].fileName
+            }
+        }
+        setSamples(padSamples)
 
 
-    //         }
-    //     }, 1000)
-
-
-    // }, [props.pads]);
+    }, [props.props.kitId]);
 
     const addSample = (padID, area, fileName) => {
 
@@ -174,7 +175,8 @@ const mapStateToProps = (state) => {
 
     return {
         deviceType: state.drive.deviceType,
-        pads: state.pads
+        pads: state.pads,
+        kitId: state.kitId
     };
 };
 
