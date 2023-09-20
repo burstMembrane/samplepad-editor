@@ -10306,6 +10306,13 @@ body {
   background-color: #1e1e1e;
   color: white;
 }
+.button.is-link {
+  background-color: #2b2b2b;
+  color: #fff;
+}
+.button.is-link:hover {
+  background-color: #383838;
+}
 .button.is-primary {
   background-color: #2b2b2b;
   color: #fff;
@@ -10357,7 +10364,7 @@ body {
 }
 
 .glyphicon {
-  background-color: #2b2b2b;
+  background-color: transparent;
   color: #d0d0d0;
   border: 0;
 }

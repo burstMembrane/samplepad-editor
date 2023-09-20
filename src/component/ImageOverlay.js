@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import ImageMapper from 'react-img-mapper';
 /* App imports */
 import { DeviceType } from 'const'
-import { useDrag, useDrop } from 'react-dnd';
+import { useDrop } from 'react-dnd';
 import { updatePadStringProperty } from 'actions/pad'
 /* App imports */
 import { DragItemTypes } from 'const';
@@ -81,7 +81,7 @@ const ImageOverlay = (props) => {
         }
         setSamples(padSamples)
 
-
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [props.props.kitId]);
 
     const addSample = (padID, area, fileName) => {

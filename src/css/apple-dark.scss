@@ -19,7 +19,13 @@ $light: #e0e0e0;
 $light-invert: findColorInvert($light);
 $text: #d0d0d0;
 
-// Apply Apple Dark Mode styles
+// warnings
+// Override Bulma's color variables with Apple Dark Mode colors
+$green: #30d15880; // Apple dark mode green
+$red: #ff453a; // Apple dark mode red
+$yellow: #ffd60a; // Apple dark mode yellow
+$blue: #0a84ff; // Apple dark mode blue
+
 html,
 body {
   background-color: $dark;
@@ -51,7 +57,14 @@ $outline-border-color: #2c2c2e; // Slightly lighter grey for the border
     background-color: darken($primary, 5%); // Slightly darker on hover
     color: lighten($primary-invert, 20%); // Slightly lighter text on hover
   }
+  &.is-link {
+    background-color: $primary;
+    color: $primary-invert;
 
+    &:hover {
+      background-color: lighten($primary, 5%); // Slightly lighten on hover
+    }
+  }
   &.is-primary {
     background-color: $primary;
     color: $primary-invert;
@@ -109,7 +122,7 @@ $outline-border-color: #2c2c2e; // Slightly lighter grey for the border
 }
 // Invert glyph icons
 .glyphicon {
-  background-color: $primary;
+  background-color: transparent;
   color: $text;
   border: 0;
   .value {

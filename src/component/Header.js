@@ -11,7 +11,7 @@ import KitListComponent from 'component/KitList'
 
 const HeaderComponent = (props) => {
   return (
-    <section className="hero is-small is-primary is-bold">
+    <section className="hero has-shadow is-small is-primary is-bold">
       <div className="hero-body">
         <div className="container">
           <div className="level">

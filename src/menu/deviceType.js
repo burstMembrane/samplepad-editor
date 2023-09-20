@@ -40,7 +40,7 @@ export const selectDeviceTypeItem = (deviceType) => {
     writeDeviceDetailsToFile(state.drive.rootPath, state.drive.deviceId, deviceType)
 
     // re-load the drive kits, reading in the new set of pads
-    let {drive, kits} = getGlobalStateFromDirectory(state.drive.rootPath);
+    let { kits } = getGlobalStateFromDirectory(state.drive.rootPath);
     store.dispatch({ type: Actions.RESET_KITS, kits: kits });
     store.dispatch({ type: Actions.SORT_KITS });
   } else {

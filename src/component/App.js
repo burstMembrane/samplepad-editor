@@ -29,16 +29,16 @@ const AppComponent = (props) => {
       }
 
       {!props.showSplash &&
-        <div className="App is-fullheight">
+        <div className="App">
           <ModalComponent />
           <NoticeComponent notices={props.notices} />
           <HeaderComponent />
           <section className="columns">
-            <div className="column  is-one-quarter">
+            <div className="column has-shadow is-one-quarter">
               <SampleListComponent />
             </div>
 
-            <div className="column is-three-quarters is-flex is-fullwidth">
+            <div className="column has-shadow is-three-quarters is-flex is-fullwidth">
 
               {!props.hasActiveKit &&
 
@@ -49,7 +49,7 @@ const AppComponent = (props) => {
               }
 
               {props.hasActiveKit &&
-                <EditKitComponent kitId={props.activeKitId} />
+                <EditKitComponent className="has-shadow " kitId={props.activeKitId} />
               }
             </div>
           </section>
