@@ -24,9 +24,9 @@ const PadLayerBComponent = (props) => {
     <div className="level PadLayer layerB">
       <div className="level-left">
         <PadNameComponent
-            padName={"Layer B"}
-            padClass={"has-background-white-ter"}
-            midi={midiProps} />
+          padName={"Layer B"}
+
+          midi={midiProps} />
 
         <div className="level-item Sample">
           <SamplePlayerComponent
@@ -37,7 +37,7 @@ const PadLayerBComponent = (props) => {
               removable={true}
               useTooltip={true}
               fileName={pad.fileNameB}
-              removeSample={() => {props.removePadSample(null)}}
+              removeSample={() => { props.removePadSample(null) }}
             />
           </SamplePlayerComponent>
         </div>

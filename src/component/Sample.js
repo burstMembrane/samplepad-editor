@@ -16,10 +16,10 @@ const SampleComponent = (props) => {
   // highlight the search term in the sample name
   let displayName = props.fileName;
   if (hasSample && props.highlightKeyword) {
-    var start=displayName.toLowerCase().indexOf(props.highlightKeyword.toLowerCase());
+    var start = displayName.toLowerCase().indexOf(props.highlightKeyword.toLowerCase());
 
-    displayName = displayName.substr(0,start)
-      + '<span class="has-background-white-ter">'
+    displayName = displayName.substr(0, start)
+      + '<span >'
       + displayName.substr(start, props.highlightKeyword.length)
       + '</span>'
       + displayName.substr(start + props.highlightKeyword.length)
@@ -28,7 +28,7 @@ const SampleComponent = (props) => {
   let containerProps = {
     'className': 'sampleContainer'
   };
-  if (hasSample && props.useTooltip && props.fileName.length > 12 ) {
+  if (hasSample && props.useTooltip && props.fileName.length > 12) {
     containerProps = {
       'className': 'sampleContainer has-tooltip-bottom',
       'data-tooltip': props.fileName
@@ -38,22 +38,22 @@ const SampleComponent = (props) => {
   return (
     <div {...containerProps}>
       <div ref={drag} className="dragContainer">
-        <button className="link panel-block sample" onClick={(e) => {if(hasSample) {props.playOrStopSample()}}}>
+        <button className="link panel-block sample" onClick={(e) => { if (hasSample) { props.playOrStopSample() } }}>
           <div className="panel-icon">
             <i className={"glyphicon " + ((props.playingSample) ? "glyphicon-stop" : "glyphicon-play")} aria-hidden="true" />
           </div>
-          <div className={"sampleNameContainer " + ((props.playingSample) ? "has-text-primary" : "")}>
-            { hasSample &&
+          <div className={"sampleNameContainer " + ((props.playingSample) ? "has-text-success" : "")}>
+            {hasSample &&
               <div className="sampleName" dangerouslySetInnerHTML={{ __html: displayName }} />
             }
-            { !hasSample &&
+            {!hasSample &&
               <span>&lt;Empty&gt;</span>
             }
           </div>
         </button>
       </div>
 
-      { hasSample && props.removable &&
+      {hasSample && props.removable &&
         <div className="removeSample">
           <button className="link has-text-link is-paddingless" onClick={props.removeSample}>
             <i className="glyphicon glyphicon-trash" aria-hidden="true" />

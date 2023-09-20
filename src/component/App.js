@@ -17,43 +17,43 @@ import SampleListComponent from 'component/SampleList'
 const AppComponent = (props) => {
   return (
     <DndProvider backend={HTML5Backend}>
-        {props.showSplash &&
-          <div className="App">
-            <HeaderComponent />
-            <div className="splash is-medium">
-              <p>Make sure your SamplePad SD card is inserted into your computer. Click the "Load SD Card" button below and select the root directory of the SD card</p>
-              <p><button className="button is-link is-medium" onClick={props.loadCard}>Load SD Card</button></p>
+      {props.showSplash &&
+        <div className="App">
+          <HeaderComponent />
+          <div className="splash is-medium">
+            <p>Make sure your SamplePad SD card is inserted into your computer. Click the "Load SD Card" button below and select the root directory of the SD card</p>
+            <p><button className="button is-link is-medium" onClick={props.loadCard}>Load SD Card</button></p>
+          </div>
+        </div>
+      }
+
+      {!props.showSplash &&
+        <div className="App is-fullheight">
+          <ModalComponent />
+          <NoticeComponent notices={props.notices} />
+          <HeaderComponent />
+          <section className="columns">
+            <div className="column  is-one-quarter">
+              <SampleListComponent />
             </div>
-          </div>
-        }
 
-        {!props.showSplash &&
-          <div className="App">
-            <ModalComponent />
-            <NoticeComponent notices={props.notices} />
-            <HeaderComponent />
-            <section className="columns">
-              <div className="column is-one-quarter">
-                <SampleListComponent />
-              </div>
+            <div className="column is-three-quarters is-flex is-fullwidth">
 
-              <div className="column is-three-quarters">
+              {!props.hasActiveKit &&
 
-                {!props.hasActiveKit &&
-                  <div>
-                    <div className="splash is-medium">
-                      <p>Select, import, or create a new kit to begin</p>
-                    </div>
-                  </div>
-                }
+                <div className="splash is-medium  ">
+                  Select, import, or create a new kit to begin
+                </div>
 
-                {props.hasActiveKit &&
-                  <EditKitComponent kitId={props.activeKitId} />
-                }
-              </div>
-            </section>
-          </div>
-        }
+              }
+
+              {props.hasActiveKit &&
+                <EditKitComponent kitId={props.activeKitId} />
+              }
+            </div>
+          </section>
+        </div>
+      }
     </DndProvider>
   );
 }

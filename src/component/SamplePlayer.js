@@ -1,7 +1,7 @@
 /* Global imports */
 import React from 'react'
 import { v1 as uuidv1 } from 'uuid';
-import update from 'immutability-helper'
+
 
 /* App imports */
 import SampleStore from 'util/sampleStore'

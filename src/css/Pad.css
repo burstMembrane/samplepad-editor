@@ -29,13 +29,6 @@
 .Pad .PadLayer .level-left:hover .removeSample {
   display: inline-block;
 }
-.Pad .PadLayer .level-right .modeIcon {
-  padding-left: 0.2em;
-}
-.Pad .PadLayer .level-right .modeIcon select {
-  padding-left: 0.25em !important;
-  padding-right: 0.25em !important;
-}
 .Pad .PadLayer .level-right .modeIcon .select::after {
   display: none !important;
 }
@@ -64,7 +57,6 @@
 }
 .Pad .Sample {
   width: 50%;
-  border: 1px solid #FBFBFF;
   border-radius: 5px;
 }
 .Pad .Sample > div {
@@ -99,12 +91,14 @@
   right: -2em;
 }
 @media (min-width: 950px) {
-  .Pad .PadLayer .level-left, .Pad .Sample {
+  .Pad .PadLayer .level-left,
+  .Pad .Sample {
     width: 55%;
   }
 }
 @media (min-width: 1000px) {
-  .Pad .PadLayer .level-left, .Pad .Sample {
+  .Pad .PadLayer .level-left,
+  .Pad .Sample {
     width: 60%;
   }
 }
