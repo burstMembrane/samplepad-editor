@@ -11,9 +11,9 @@ module.exports = {
         case 'darwin':
           wavSpawn[wavId] = spawn('afplay', [path])
           break
-        // add aplay for linux
+        // add aplay for linux non-blocking
         case 'linux':
-          wavSpawn[wavId] = spawn('aplay', [path])
+          wavSpawn[wavId] = spawn('aplay', [path, '-N'])
           break
         case 'win32':
           wavSpawn[wavId] = spawn('powershell', [

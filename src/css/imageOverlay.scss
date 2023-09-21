@@ -12,3 +12,12 @@
   align-items: center;
   justify-content: center;
 }
+area.img-mapper-area-highlighted {
+  transition:
+    background-color 0.3s,
+    color 0.3s; // Smooth transition for hover effects
+}
+.message {
+  background-color: transparent;
+  margin: 0.5em;
+}

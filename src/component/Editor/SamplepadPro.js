@@ -13,6 +13,7 @@ const EditKit = (props) => {
   return (
     <div className="pad-table">
       <div className="is-size-5">Main Pads</div>
+
       {
         props.mainPads.map((pad) => {
           return (

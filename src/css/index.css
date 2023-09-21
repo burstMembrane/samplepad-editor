@@ -3,6 +3,7 @@
 @import "icons.css";
 @import "apple-dark.css";
 @import "imageOverlay.css";
+@import "Collapsible.css";
 button.link {
   background: none;
   color: inherit;

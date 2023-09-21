@@ -190,7 +190,8 @@ const mapStateToProps = (state, ownProps) => {
     deviceType: state.drive.deviceType,
     hasVelocityError: hasVelocityError,
     velocityTooltip: velocityTooltip,
-    hasLayerBError: hasLayerBError
+    hasLayerBError: hasLayerBError,
+
   }
 }
 

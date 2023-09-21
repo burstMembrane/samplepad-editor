@@ -12,8 +12,11 @@ import SamplepadProEditor from 'component/Editor/SamplepadPro'
 
 import 'css/EditKit.css'
 import ImageOverlay from 'component/ImageOverlay';
+import Collapsible from 'react-collapsible';
+
 
 const EditKit = (props) => {
+
   let kitNameControlProps = {};
 
   if (props.hasKitNameError) {
@@ -42,6 +45,8 @@ const EditKit = (props) => {
             props.showSaveAsNew &&
             <button className="button" onClick={props.saveNewKit}>Save as New Kit</button>
           }
+
+
         </div>
       </div>
 
@@ -51,12 +56,15 @@ const EditKit = (props) => {
 
       {props.showSamplepadProEditor &&
         <>
-          <ImageOverlay props={props} />
-          <SamplepadProEditor kitId={props.kitId} />
-
+          <Collapsible trigger='Pad Editor' triggerTagName='div' transitionTime={200} open={true}>
+            <ImageOverlay props={props} />
+          </Collapsible>
+          <Collapsible trigger='Pad Settings' triggerTagName='div' transitionTime={200}>
+            <SamplepadProEditor kitId={props.kitId} />
+          </Collapsible>
         </>
       }
-    </div>
+    </div >
 
   );
 }

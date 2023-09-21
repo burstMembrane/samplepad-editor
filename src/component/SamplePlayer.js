@@ -66,7 +66,10 @@ class SamplePlayerComponent extends React.Component {
     }));
 
     try {
+
       await wav.playWavFile(wavId, SampleStore.getFileNameOnDisk(this.props.sampleFile));
+
+
       this.setState(prevState => {
         const wavIndex = prevState.wavStack.indexOf(wavId);
         if (wavIndex > -1) {
