@@ -28,6 +28,9 @@ function createWindow() {
   // Initialize the renderer message handlers
   mainProcessEvents.initIpcMainReceiver();
 }
+if (process.platform === 'linux') {
+  app.commandLine.appendSwitch('no-sandbox');
+}
 
 app.on('ready', createWindow);
 
