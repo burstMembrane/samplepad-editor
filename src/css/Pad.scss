@@ -23,9 +23,13 @@
         transition: background-color 30ms linear;
       }
     }
+    .GMName {
+      font-size: x-small;
+      min-width: 7em;
+    }
 
     .MidiNote {
-      margin-left: -1em;
+      margin-left: -4em;
 
       select {
         padding-left: 2em !important;

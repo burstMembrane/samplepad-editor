@@ -16,8 +16,12 @@
 .Pad .PadLayer .level-left .PadMidi .padName.playing {
   transition: background-color 30ms linear;
 }
+.Pad .PadLayer .level-left .GMName {
+  font-size: x-small;
+  min-width: 7em;
+}
 .Pad .PadLayer .level-left .MidiNote {
-  margin-left: -1em;
+  margin-left: -4em;
 }
 .Pad .PadLayer .level-left .MidiNote select {
   padding-left: 2em !important;

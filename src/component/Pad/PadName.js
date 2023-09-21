@@ -25,7 +25,7 @@ class PadName extends React.Component {
   render() {
     return (
       <div className="level-item PadMidi">
-        <span className={"is-size-7 padName " + ((this.state.playing) ? 'playing has-background-primary': this.props.padClass)}>
+        <span className={"is-size-7 padName " + ((this.state.playing) ? 'playing has-background-primary' : this.props.padClass)}>
           {this.props.padName}:
         </span>
       </div>
@@ -35,8 +35,8 @@ class PadName extends React.Component {
   componentDidUpdate(prevProps, prevState, snapshot) {
     if (this.props.midi) {
       if (prevProps.midi.note !== this.props.midi.note ||
-          prevProps.midi.min !== this.props.midi.min ||
-          prevProps.midi.max !== this.props.midi.max) {
+        prevProps.midi.min !== this.props.midi.min ||
+        prevProps.midi.max !== this.props.midi.max) {
 
         this.removeMidiHandler(prevProps.midi.note)
         this.addMidiHandler()
@@ -53,10 +53,10 @@ class PadName extends React.Component {
   addMidiHandler() {
     if (this.props.midi) {
       midi.addMidiNoteOnHandler(this.handlerId, this.props.midi.note, this.props.midi.min, this.props.midi.max, (e) => {
-        this.setState({playing: true})
+        this.setState({ playing: true })
         clearTimeout(this.timeout)
         this.timeout = setTimeout(() => {
-          this.setState({playing: false})
+          this.setState({ playing: false })
         }, 300)
       })
     }

@@ -65,6 +65,7 @@ const bindMidiInput = (inputIndex) => {
   );
 }
 
+
 // Enable WebMidi as soon as called
 enable()
 
@@ -94,7 +95,7 @@ module.exports = {
    * @param {Function} callback
    */
   addMidiNoteOnHandler: (handlerId, note, min, max, callback) => {
-    if (!noteOnCallbacks[note]){
+    if (!noteOnCallbacks[note]) {
       noteOnCallbacks[note] = {}
     }
 

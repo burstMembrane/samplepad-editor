@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 
 /* App imports */
-import { MidiMap, PadErrors, PadErrorStrings } from 'const'
+import { MidiMap, PadErrors, PadErrorStrings, GMDrumMap } from 'const'
 import { updatePadIntProperty, updatePadProperty, updatePadSensitivity } from 'actions/pad'
 
 /* Component imports */
@@ -25,6 +25,7 @@ const PadLayerAComponent = (props) => {
     min: pad.velocityMin,
     max: pad.velocityMax
   }
+  console.log()
 
   return (
     <div className="PadLayer layerA">
@@ -32,7 +33,6 @@ const PadLayerAComponent = (props) => {
         <div className="level-left">
           <PadNameComponent
             padName={padName}
-
             midi={midiProps} />
 
           <div className="level-item MidiNote">
@@ -42,6 +42,7 @@ const PadLayerAComponent = (props) => {
               value={pad.midiNote}
               onChange={(midiNote) => props.updatePadIntProperty("midiNote", midiNote)} />
           </div>
+          <div className='level-item GMName'>{GMDrumMap.get(pad.midiNote) || ""}</div>
 
           <div className='level-item Sample'>
             <SamplePlayerComponent
