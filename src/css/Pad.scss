@@ -96,10 +96,15 @@
       position: relative;
 
       .dragContainer {
-        display: inline-block;
+        display: flex;
         width: 100%;
+        padding: 0;
       }
-
+      .panel-block {
+        width: 100%;
+        padding: 0 !important;
+        margin: 0;
+      }
       .panel-block.sample {
         border-radius: 6px;
         padding: 0.2em 0.5em;
@@ -108,7 +113,6 @@
 
       .sampleNameContainer {
         width: 100%;
-        text-align: left;
       }
 
       .sampleName {

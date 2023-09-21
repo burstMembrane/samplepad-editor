@@ -1,9 +1,18 @@
 .SampleList {
   margin: 0.5em 0 0 0.5em;
+  overflow: auto; /* required for 'resize' to work */
+}
+.SampleList .kitNameContainer {
+  color: rgba(126, 252, 0, 0.393);
+  margin-left: 1rem;
+}
+.SampleList .space-around {
+  justify-content: space-evenly;
 }
 .SampleList .samples {
   width: 100%;
   overflow-y: scroll !important;
+  width: 100%;
   max-height: calc(100vh - 17.5em);
   transition: background-color 0.3s, color 0.3s;
 }
@@ -11,7 +20,7 @@
   text-align: left;
 }
 .SampleList .samples .sampleName {
-  max-width: 10em;
+  display: flex;
 }
 .SampleList .samples .sampleContainer:hover {
   width: 100%;

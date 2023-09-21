@@ -1,17 +1,30 @@
 .SampleList {
   margin: 0.5em 0 0 0.5em;
+  // display: flex;
 
+  // resize: horizontal;
+  // min-width: 300px;
+  // max-width: 400px;
+  overflow: auto; /* required for 'resize' to work */
+
+  .kitNameContainer {
+    color: rgba(126, 252, 0, 0.393);
+    margin-left: 1rem;
+  }
+  .space-around {
+    justify-content: space-evenly;
+  }
   .samples {
     width: 100%;
     overflow-y: scroll !important;
-
+    width: 100%;
     max-height: calc(100vh - 17.5em);
     button.sample {
       text-align: left;
     }
 
     .sampleName {
-      max-width: 10em;
+      display: flex;
     }
 
     transition:
