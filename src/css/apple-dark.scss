@@ -253,3 +253,8 @@ $scrollbar-track-color: #2c2c2e;
 * {
   scrollbar-color: $scrollbar-thumb-color $scrollbar-track-color;
 }
+
+.modal {
+  border-color: $grey-dark;
+  color: $primary-invert;
+}

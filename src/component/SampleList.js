@@ -11,17 +11,19 @@ import SampleComponent from 'component/Sample'
 import SamplePlayerComponent from 'component/SamplePlayer'
 import 'css/SampleList.css'
 import { getKitAndPadsFromFile } from 'util/kitFile';
+import PurgeSampleModal from './PurgeSampleModal';
 
 // converted to functional component
 const SampleList = ({ samples, importSamples, clear, kits, drive }) => {
   const [filter, setFilter] = useState('');
-
+  const [modal, setModal] = useState(false)
   const [filenameKitMap, setFilenameKitMap] = useState({})
   const handleRefresh = (e) => {
     console.log(e);
+    setModal(true)
   };
-  useEffect(() => {
-    // find the kit name for samples
+
+  const getKitMap = () => {
     const filenameMap = {}
     for (const kitID of kits.ids) {
       let kit = kits.models[kitID];
@@ -32,7 +34,12 @@ const SampleList = ({ samples, importSamples, clear, kits, drive }) => {
       }
     }
     setFilenameKitMap(filenameMap)
-  }, [drive, kits.ids, kits.models])
+  }
+  useEffect(() => {
+    // find the kit name for samples
+    getKitMap()
+
+  }, [])
 
   const filterSamples = (filter) => {
     setFilter(filter);
@@ -75,7 +82,7 @@ const SampleList = ({ samples, importSamples, clear, kits, drive }) => {
             </span>
           </div>
         </div>
-
+        {/* <PurgeSampleModal isModalOpen={modal} setModal={setModal} /> */}
         <div className="samples">
           {samples &&
             samples.sort((a, b) => {
@@ -108,7 +115,10 @@ const SampleList = ({ samples, importSamples, clear, kits, drive }) => {
           </button>
         </div>
       </nav>
+
+
     </section>
+
   );
 };
 

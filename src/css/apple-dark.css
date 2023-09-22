@@ -10472,4 +10472,9 @@ body {
   scrollbar-color: #48484a #2c2c2e;
 }
 
+.modal {
+  border-color: #2c2c2e;
+  color: #fff;
+}
+
 /*# sourceMappingURL=apple-dark.css.map */

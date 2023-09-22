@@ -36,9 +36,9 @@ const SampleComponent = (props) => {
   }
 
   return (
-    <div {...containerProps}>
+    <div {...containerProps} className='panel'>
       <div ref={drag} className="dragContainer">
-        <button className="link panel-block sample" onClick={(e) => { if (hasSample) { props.playOrStopSample() } }}>
+        <button className="link panel-block is-justify-content-space-around sample" onClick={(e) => { if (hasSample) { props.playOrStopSample() } }}>
           <div className="panel-icon is-pulled-left">
             <i className={"glyphicon " + ((props.playingSample) ? "glyphicon-stop" : "glyphicon-play")} aria-hidden="true" />
           </div>
