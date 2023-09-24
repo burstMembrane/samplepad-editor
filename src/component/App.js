@@ -34,11 +34,11 @@ const AppComponent = (props) => {
           <NoticeComponent notices={props.notices} />
           <HeaderComponent />
           <section className="columns">
-            <div className="column has-shadow ">
+            <div className="column has-shadow is-one-quarter">
               <SampleListComponent />
             </div>
 
-            <div className="column has-shadow is-three-quarters is-flex ">
+            <div className="column has-shadow is-three-quarters is-flex is-fullwidth">
 
               {!props.hasActiveKit &&
 
