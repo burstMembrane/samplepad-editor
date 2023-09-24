@@ -29,7 +29,7 @@ const EditKit = (props) => {
 
     <div className="kit">
 
-      <div className="is-size-3">Kit: {props.originalKitName}</div>
+      <div className="is-size-2"> {props.originalKitName}</div>
       <div className="field is-grouped">
         <div {...kitNameControlProps} className={"control " + ((props.hasKitNameError) ? 'has-tooltip-bottom' : '')}>
           <input

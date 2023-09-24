@@ -84,9 +84,6 @@
   padding: 0.2em 0.5em;
   width: 100%;
 }
-.Pad .Sample .sampleContainer .sampleNameContainer {
-  width: 100%;
-}
 .Pad .Sample .sampleContainer .sampleName {
   text-align: left;
   text-overflow: ellipsis;

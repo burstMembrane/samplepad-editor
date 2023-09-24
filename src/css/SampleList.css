@@ -1,19 +1,32 @@
 .SampleList {
-  margin: 0.5em 0 0 0.5em;
-  overflow: auto; /* required for 'resize' to work */
+  max-height: 100vh;
+  overflow-x: hidden; /* required for 'resize' to work */
+}
+.SampleList .panel {
+  margin: 0;
+  padding: 0;
+}
+.SampleList .SampleSearch {
+  margin-left: 0.5rem;
+  max-width: 100%;
+}
+.SampleList .panel-block {
+  width: 100%;
+  justify-content: space-between;
 }
 .SampleList .kitNameContainer {
   color: rgba(126, 252, 0, 0.393);
   margin-left: 1rem;
+  text-overflow: ellipsis;
 }
 .SampleList .space-around {
   justify-content: space-evenly;
 }
 .SampleList .samples {
+  margin-left: 0.5rem;
   width: 100%;
+  max-height: calc(100vh - 15em);
   overflow-y: scroll !important;
-  width: 100%;
-  max-height: calc(100vh - 17.5em);
   transition: background-color 0.3s, color 0.3s;
 }
 .SampleList .samples button.sample {
@@ -26,7 +39,10 @@
   width: 100%;
 }
 .SampleList .samples .sampleContainer:hover .sample {
-  width: 100%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-around;
   box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1), inset 0 0 0 1px rgba(0, 0, 0, 0.1);
 }
 .SampleList .samples .sampleContainer:hover .sample .sampleName {

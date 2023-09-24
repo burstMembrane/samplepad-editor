@@ -1,32 +1,44 @@
 .SampleList {
-  margin: 0.5em 0 0 0.5em;
-  // display: flex;
+  // margin: 0.5em 0 0 0.5em;
+  max-height: 100vh;
 
   // resize: horizontal;
-  // min-width: 300px;
-  // max-width: 400px;
-  overflow: auto; /* required for 'resize' to work */
+  overflow-x: hidden; /* required for 'resize' to work */
+
+  .panel {
+    margin: 0;
+    padding: 0;
+  }
+  .SampleSearch {
+    margin-left: 0.5rem;
+    max-width: 100%;
+  }
+
+  .panel-block {
+    width: 100%;
+    justify-content: space-between;
+  }
 
   .kitNameContainer {
     color: rgba(126, 252, 0, 0.393);
     margin-left: 1rem;
+    text-overflow: ellipsis;
   }
   .space-around {
     justify-content: space-evenly;
   }
   .samples {
+    margin-left: 0.5rem;
     width: 100%;
+    max-height: calc(100vh - 15em);
     overflow-y: scroll !important;
-    width: 100%;
-    max-height: calc(100vh - 17.5em);
+
     button.sample {
       text-align: left;
     }
-
     .sampleName {
       display: flex;
     }
-
     transition:
       background-color 0.3s,
       color 0.3s; // Smooth transition for hover effects
@@ -34,8 +46,11 @@
       width: 100%;
 
       .sample {
-        width: 100%;
+        padding: 0;
+        margin: 0;
 
+        display: flex;
+        justify-content: space-around;
         box-shadow:
           0 2px 3px 0 rgba(0, 0, 0, 0.1),
           inset 0 0 0 1px rgba(0, 0, 0, 0.1);

@@ -1,7 +1,6 @@
 const { app, BrowserWindow, Menu } = require('electron')
 const path = require('path');
 const isDev = require('electron-is-dev');
-// const os = require("os")
 const mainProcessEvents = require('./events/mainProcessEvents')
 const { getMenuTemplate } = require('./mainApi/menu')
 
@@ -30,23 +29,11 @@ function createWindow() {
   mainProcessEvents.initIpcMainReceiver();
 }
 if (process.platform === 'linux') {
+  console.log("adding no sandbox to command line flags")
   app.commandLine.appendSwitch('no-sandbox');
 }
 
-// load react devtools if dev and on linux
-// TODO: add other platform config paths
-
-// if (isDev && process.platform === 'linux' && process.env.REACT_DEV_TOOLS_PATH) {
-//   console.log(`loading react dev tools extension from path: ${process.env.REACT_DEV_TOOLS_PATH}`)
-//   const reactDevToolsPath = path.join(
-//     os.homedir(), process.env.REACT_DEV_TOOLS_PATH
-//   )
-//   app.whenReady().then(async () => {
-//     await session.defaultSession.loadExtension(reactDevToolsPath)
-//   })
-
-
-// }
+app.on('ready', createWindow);
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {

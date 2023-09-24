@@ -10286,6 +10286,7 @@ html,
 body {
   background-color: #1e1e1e;
   color: #d0d0d0;
+  max-height: 100vh !important;
 }
 
 .navbar {

@@ -12,6 +12,8 @@ import SamplePlayerComponent from 'component/SamplePlayer'
 import 'css/SampleList.css'
 import { getKitAndPadsFromFile } from 'util/kitFile';
 import PurgeSampleModal from './PurgeSampleModal';
+/* Electron imports */
+const { fs } = window.api;
 
 // converted to functional component
 const SampleList = ({ samples, importSamples, clear, kits, drive }) => {
@@ -41,22 +43,27 @@ const SampleList = ({ samples, importSamples, clear, kits, drive }) => {
 
   }, [])
 
+  const removeSample = (e) => {
+    // remove the sample from disk...
+    console.log(e)
+  }
   const filterSamples = (filter) => {
     setFilter(filter);
   };
 
   return (
-    <section className="SampleList is-fullwidth">
-      <nav className="panel is-fullwidth">
-        <div className="panel-heading is-fullwidth">
+    <section className="SampleList ">
+      <nav className="panel is-marginless">
+        <div className="panel-heading is-size-4 ">
           <div className="level">
             <div className="level-left">
-              <div className="level-item">Samples</div>
-            </div>
-            <div className="level-right">
-              <p className="is-size-7">
-                ({samples ? samples.length : 0}/{Drive.MAX_SAMPLES})
-              </p>
+              <div className="level-item">
+                <p className="is-size-7">
+
+                  Samples on card:   ({samples ? samples.length : 0}/{Drive.MAX_SAMPLES})
+                </p>
+
+              </div>
             </div>
             <button
               className="glyphicon glyphicon-refresh level-right"
@@ -68,22 +75,24 @@ const SampleList = ({ samples, importSamples, clear, kits, drive }) => {
             />
           </div>
         </div>
-
-        <div className="panel-block">
+        <div className="SampleSearch">
           <div className="control has-icons-left">
+            <span className="icon is-pulled-left">
+              <i className="glyphicon glyphicon-search" aria-hidden="true"></i>
+            </span>
             <input
               className="input"
               type="text"
               placeholder="Search"
               onChange={(e) => filterSamples(e.target.value)}
             />
-            <span className="icon is-left">
-              <i className="glyphicon glyphicon-search" aria-hidden="true"></i>
-            </span>
+
           </div>
         </div>
         {/* <PurgeSampleModal isModalOpen={modal} setModal={setModal} /> */}
+
         <div className="samples">
+
           {samples &&
             samples.sort((a, b) => {
               const kitNameA = filenameKitMap[a] || '';  // Handle cases where the kit name is not available
@@ -98,12 +107,16 @@ const SampleList = ({ samples, importSamples, clear, kits, drive }) => {
                       kitName={filenameKitMap[file]}
                       highlightKeyword={filter}
                       draggable={true}
+                      removable={!filenameKitMap[file]}
+                      removeSample={removeSample}
                     />
-
                   </SamplePlayerComponent>
                 )}
+
+                {!samples && <div className='panel-heading'>No samples found...</div>}
               </span>
             ))}
+
         </div>
 
         <div className="panel-block">

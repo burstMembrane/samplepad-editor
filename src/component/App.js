@@ -20,7 +20,6 @@ const AppComponent = (props) => {
       {props.showSplash &&
         <div className="App">
           <HeaderComponent />
-
           <div className="splash is-medium">
             <p>Make sure your SamplePad SD card is inserted into your computer. Click the "Load SD Card" button below and select the root directory of the SD card</p>
             <p><button className="button is-link is-medium" onClick={props.loadCard}>Load SD Card</button></p>
@@ -34,12 +33,10 @@ const AppComponent = (props) => {
           <NoticeComponent notices={props.notices} />
           <HeaderComponent />
           <section className="columns">
-            <div className="column has-shadow is-one-quarter">
+            <div className="column has-shadow is-one-fifth is-flex">
               <SampleListComponent />
             </div>
-
-            <div className="column has-shadow is-three-quarters is-flex is-fullwidth">
-
+            <div className="column has-shadow is-four-fifths is-flex is-fullwidth">
               {!props.hasActiveKit &&
 
                 <div className="splash is-medium  ">

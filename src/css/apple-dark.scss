@@ -30,6 +30,7 @@ html,
 body {
   background-color: $dark;
   color: $text;
+  max-height: 100vh !important;
 }
 
 // Customize navbar

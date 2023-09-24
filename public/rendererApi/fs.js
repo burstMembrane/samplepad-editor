@@ -35,7 +35,7 @@ module.exports = {
       })
   },
   getSampleFiles: (sampleDirectoryPath) => {
-    return fs.readdirSync(sampleDirectoryPath, {withFileTypes: true})
+    return fs.readdirSync(sampleDirectoryPath, { withFileTypes: true })
       .filter((dirent) => {
         return dirent.isFile()
           && path.extname(dirent.name).toUpperCase() === ".WAV"
@@ -43,11 +43,15 @@ module.exports = {
       })
   },
   getKitFiles: (kitPath) => {
-    return fs.readdirSync(kitPath, {withFileTypes: true})
+    return fs.readdirSync(kitPath, { withFileTypes: true })
       .filter((dirent) => {
         return dirent.isFile()
           && path.extname(dirent.name).toUpperCase() === ".KIT"
           && !(/(^|\/)\.[^/.]/g).test(dirent.name)
       })
+  },
+
+  deleteFile: (filePath) => {
+    return fs.rmSync(filePath)
   }
 }
