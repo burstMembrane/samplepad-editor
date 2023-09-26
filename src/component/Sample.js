@@ -1,13 +1,13 @@
 /* Global imports */
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import { useDrag } from 'react-dnd';
-import SampleStore from 'util/sampleStore'
+
 /* App imports */
 import { DragItemTypes } from 'const';
 
 
 
-const { fs } = window.api
+
 
 
 
