@@ -1,13 +1,11 @@
-// material-dark.scss
-
 // Import Bulma
 @import "../node_modules/bulma/bulma.sass";
 
-// Override Bulma variables to Apple Dark Mode colors
-$primary: #2b2b2b; // Apple dark grey
+// Override Bulma variables to GitHub Dark Mode colors
+$primary: #24292e; // GitHub dark grey
 $primary-invert: findColorInvert($primary);
-$dark: #1e1e1e; // Apple dark background
-$bg-dark: #2c2c2e; // Apple dark secondary background
+$dark: #0d1117; // GitHub dark background
+$bg-dark: #161b22; // GitHub dark secondary background
 $grey-darker: #3a3a3c;
 $grey-dark: #2c2c2e;
 $grey: #3a3a3c;
@@ -20,12 +18,12 @@ $light-invert: findColorInvert($light);
 $text: #d0d0d0;
 
 $border: 1px solid rgba(255, 255, 255, 0.2);
-// warnings
-// Override Bulma's color variables with Apple Dark Mode colors
-$green: #30d15880; // Apple dark mode green
-$red: #ff453a; // Apple dark mode red
-$yellow: #ffd60a; // Apple dark mode yellow
-$blue: #0a84ff; // Apple dark mode blue
+
+// Override Bulma's color variables with GitHub Dark Mode colors
+$green: #28a745; // GitHub dark mode green
+$red: #d73a49; // GitHub dark mode red
+$yellow: #ffd33d; // GitHub dark mode yellow
+$blue: #0366d6; // GitHub dark mode blue
 
 // root style
 html,
@@ -41,14 +39,14 @@ body {
   color: $text;
 }
 
-// Define Apple Dark Mode colors
-$dark-background: #1e1e1e; // Apple dark background
-$outline-border-color: #2c2c2e; // Slightly lighter grey for the border
+// Define GitHub Dark Mode colors
+$dark-background: #0d1117; // GitHub dark background
+$outline-border-color: #161b22; // Slightly lighter grey for the border
 
 // Define common styles for buttons
 @mixin button-styles($background-color, $text-color) {
   border: 1px solid $outline-border-color;
-  border-radius: 8px; // Rounded corners, typical in Apple design
+  border-radius: 8px; // Rounded corners, typical in GitHub design
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); // Optional: subtle shadow for depth
   background-color: $background-color;
   color: $text-color;
@@ -85,8 +83,7 @@ $outline-border-color: #2c2c2e; // Slightly lighter grey for the border
 
   &.is-link.is-outlined,
   &.is-outlined {
-    border: 1px solid $outline-border-color;
-    @include button-styles($primary, $grey-lighter);
+    @include button-styles($primary-invert, $grey-lighter);
   }
 }
 
@@ -161,10 +158,10 @@ $hero-dark-color: $white;
   color: $primary-invert;
 }
 
-// top hero
 .hero-body {
   background-color: $hero-dark-background-color;
   color: $hero-dark-color;
+
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 

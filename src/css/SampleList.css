@@ -1,6 +1,10 @@
 .SampleList {
   max-height: 100vh;
-  overflow-x: hidden; /* required for 'resize' to work */
+  border-radius: 0px;
+  padding-right: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-top: none;
+  overflow-x: hidden;
 }
 .SampleList .panel {
   margin: 0;
@@ -11,6 +15,7 @@
   max-width: 100%;
 }
 .SampleList .panel-block {
+  border-radius: 0px;
   width: 100%;
   justify-content: space-between;
 }

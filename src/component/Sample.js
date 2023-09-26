@@ -1,9 +1,15 @@
 /* Global imports */
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useDrag } from 'react-dnd';
-
+import SampleStore from 'util/sampleStore'
 /* App imports */
 import { DragItemTypes } from 'const';
+
+
+
+const { fs } = window.api
+
+
 
 const SampleComponent = (props) => {
   let [, drag] = useDrag({
@@ -39,25 +45,17 @@ const SampleComponent = (props) => {
     <div {...containerProps} className='panel'>
       <div ref={drag} className="dragContainer">
         <button className="link panel-block sample" onClick={(e) => { if (hasSample) { props.playOrStopSample() } }}>
-
-
-
           <div className={"sampleNameContainer" + ((props.playingSample) ? "has-text-success" : "")}>
             <div className="link has-text-link is-paddingless is-pulled-left pr-2">
               <i className={"glyphicon " + ((props.playingSample) ? "glyphicon-stop" : "glyphicon-play")} aria-hidden="true" />
             </div>
-
             {hasSample &&
               <div className="sampleName is-pulled-left" dangerouslySetInnerHTML={{ __html: displayName }} />
             }
             {!hasSample &&
               <span>&lt;Empty&gt;</span>
             }
-
-
           </div>
-
-
           <div className='kitNameContainer is-pulled-right'>{props.kitName}</div>
           {hasSample && props.removable &&
             <div className="removeSample is-pulled-right">

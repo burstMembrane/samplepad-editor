@@ -5,8 +5,9 @@ const spawn = require('child_process').spawn
 let wavSpawn = {}
 
 module.exports = {
+
   playWavFile: (wavId, path) => {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
       switch (remote.process.platform) {
         case 'darwin':
           wavSpawn[wavId] = spawn('afplay', [path])
@@ -27,7 +28,7 @@ module.exports = {
           break
       }
 
-      wavSpawn[wavId].on('close', (code) => {
+      wavSpawn[wavId].on('close', () => {
         resolve()
       })
     })

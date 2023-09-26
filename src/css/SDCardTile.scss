@@ -1,0 +1,32 @@
+.SDCardTile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+
+  max-width: 500px;
+  height: 100%;
+  background-color: transparent;
+  color: #fafafa;
+  margin: 10rem auto;
+  .title {
+    color: #fafafa;
+  }
+  p {
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+  .button {
+    border-radius: 0px;
+    width: 10rem;
+    height: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    i {
+      font-size: 2rem;
+      width: 30px;
+      height: 30px;
+    }
+  }
+}

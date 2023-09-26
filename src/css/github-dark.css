@@ -10284,7 +10284,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 
 html,
 body {
-  background-color: #1e1e1e;
+  background-color: #0d1117;
   color: #d0d0d0 !important;
   max-height: 100vh !important;
 }
@@ -10295,49 +10295,49 @@ body {
 }
 
 .button {
-  border: 1px solid #2c2c2e;
+  border: 1px solid #161b22;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  background-color: #2b2b2b;
+  background-color: #24292e;
   color: #fff;
   transition: background-color 0.3s, color 0.3s;
   outline: none;
 }
 .button:hover {
-  background-color: #1e1e1e;
+  background-color: #191c20;
   color: white;
 }
 .button.is-link {
-  border: 1px solid #2c2c2e;
+  border: 1px solid #161b22;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  background-color: #2b2b2b;
+  background-color: #24292e;
   color: #fff;
   transition: background-color 0.3s, color 0.3s;
   outline: none;
 }
 .button.is-link:hover {
-  background-color: #1e1e1e;
+  background-color: #191c20;
   color: white;
 }
 .button.is-link:hover {
-  background-color: #383838;
+  background-color: #2f363c;
 }
 .button.is-primary {
-  border: 1px solid #2c2c2e;
+  border: 1px solid #161b22;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  background-color: #2b2b2b;
+  background-color: #24292e;
   color: #fff;
   transition: background-color 0.3s, color 0.3s;
   outline: none;
 }
 .button.is-primary:hover {
-  background-color: #1e1e1e;
+  background-color: #191c20;
   color: white;
 }
 .button.is-small {
-  border: 1px solid #2c2c2e;
+  border: 1px solid #161b22;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   background-color: #3a3a3c;
@@ -10350,7 +10350,7 @@ body {
   color: white;
 }
 .button.is-info {
-  border: 1px solid #2c2c2e;
+  border: 1px solid #161b22;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   background-color: #3a3a3c;
@@ -10363,17 +10363,16 @@ body {
   color: white;
 }
 .button.is-link.is-outlined, .button.is-outlined {
-  border: 1px solid #2c2c2e;
-  border: 1px solid #2c2c2e;
+  border: 1px solid #161b22;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  background-color: #2b2b2b;
+  background-color: #fff;
   color: #636366;
   transition: background-color 0.3s, color 0.3s;
   outline: none;
 }
 .button.is-link.is-outlined:hover, .button.is-outlined:hover {
-  background-color: #1e1e1e;
+  background-color: #f2f2f2;
   color: #cacacb;
 }
 
@@ -10389,7 +10388,7 @@ body {
 
 .sampleContainer:hover {
   width: 100%;
-  background-color: #1e1e1e;
+  background-color: #191c20;
   color: white;
 }
 
@@ -10403,35 +10402,35 @@ body {
 }
 
 .modal {
-  background-color: #2c2c2e;
+  background-color: #161b22;
   color: #fff !important;
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 .modal .modal-card-head {
-  background-color: #2c2c2e;
+  background-color: #161b22;
   color: #fff;
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 .modal .modal-card-title {
-  background-color: #2c2c2e;
+  background-color: #161b22;
   color: #fff;
 }
 .modal .modal-card-foot {
-  background-color: #2c2c2e;
+  background-color: #161b22;
   color: #fff;
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 .modal .modal-card {
-  background-color: #2c2c2e;
+  background-color: #161b22;
   color: #fff;
 }
 .modal .modal-card-body {
-  background-color: #2c2c2e;
+  background-color: #161b22;
   color: #fff;
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 .modal .button {
-  background-color: #2c2c2e !important;
+  background-color: #161b22 !important;
   color: #fff;
 }
 .modal .progress {
@@ -10439,12 +10438,12 @@ body {
 }
 
 .is-dark {
-  background-color: #2c2c2e !important;
+  background-color: #161b22 !important;
   color: #fff;
 }
 
 .hero-body {
-  background-color: #2c2c2e;
+  background-color: #161b22;
   color: #d6d6d6;
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
@@ -10483,7 +10482,7 @@ body {
 }
 
 .panel {
-  background-color: #2c2c2e;
+  background-color: #161b22;
   color: #d6d6d6;
   border-color: #3a3a3c;
 }
@@ -10550,4 +10549,4 @@ body {
   color: #fff;
 }
 
-/*# sourceMappingURL=apple-dark.css.map */
+/*# sourceMappingURL=github-dark.css.map */

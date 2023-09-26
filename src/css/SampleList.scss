@@ -2,8 +2,11 @@
   // margin: 0.5em 0 0 0.5em;
   max-height: 100vh;
 
-  // resize: horizontal;
-  overflow-x: hidden; /* required for 'resize' to work */
+  border-radius: 0px;
+  padding-right: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-top: none;
+  overflow-x: hidden;
 
   .panel {
     margin: 0;
@@ -15,10 +18,10 @@
   }
 
   .panel-block {
+    border-radius: 0px;
     width: 100%;
     justify-content: space-between;
   }
-
   .kitNameContainer {
     color: rgba(126, 252, 0, 0.393);
     margin-left: 1rem;

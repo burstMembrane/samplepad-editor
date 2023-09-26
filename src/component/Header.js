@@ -11,14 +11,14 @@ import KitListComponent from 'component/KitList'
 
 const HeaderComponent = (props) => {
   return (
-    <section className="hero has-shadow is-fullwidth is-small is-primary is-bold is-fullwidth">
+    <section className="hero has-shadow is-fullwidth is-small  is-primary is-bold is-fullwidth">
       <div className="hero-body">
         <div className="is-pulled-left">
-          <h1 className="title is-size-2">
+          <h2 className="title is-size-4">
             {props.deviceType} Kit Editor
-          </h1>
+          </h2>
         </div>
-        <div className=" is-pulled-right">
+        <div className="is-pulled-right">
           <KitListComponent />
         </div>
       </div>

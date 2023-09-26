@@ -46,6 +46,55 @@ class SampleStore {
     }
   }
 
+  // write a function to refresh the sample list
+  refresh() {
+    return (dispatch, getState) => {
+      console.log("Refreshing samples")
+
+      // get the length of this.deviceSamples
+      let numSamples = Object.keys(this.deviceSamples).length
+      // load the new samples from disk
+      this.loadSamplesFromDirectory(this.deviceId, this.devicePath)
+      // get the new length of this.deviceSamples
+      this.deviceSamples = Object.fromEntries(
+        fs.getSampleFiles(this.devicePath)
+          .map((dirent) => {
+            return [dirent.name, dirent.name]
+          })
+      )
+      this
+        ._saveSamples()
+      let newSamples = Object.keys(this.deviceSamples).length - numSamples
+      console.log(`Loaded ${newSamples} new samples from SD card.`)
+      dispatch({ type: Actions.RESET_SAMPLES, samples: Object.keys(this.deviceSamples) })
+    }
+  }
+
+  deleteSample(fileName) {
+
+    return (dispatch, getState) => {
+      const samplePath = this.getFileNameOnDisk(fileName)
+      console.log("Deleting sample", samplePath);
+      fs.deleteFile(samplePath)
+      dispatch(
+        showNotice("is-success", `Deleted ${samplePath}.`)
+      )
+      // remove the sample from this.devicesamples
+      delete this.deviceSamples[fileName]
+      delete this.samples[this.deviceId][fileName]
+      // remove the sample from the store
+      store.save('samples', this.samples)
+
+
+      dispatch({ type: Actions.RESET_SAMPLES, samples: Object.keys(this.deviceSamples) })
+
+
+
+
+
+    }
+  }
+
   getSamples() {
     return this.deviceSamples
   }

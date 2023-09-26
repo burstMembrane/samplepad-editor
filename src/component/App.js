@@ -14,21 +14,28 @@ import EditKitComponent from 'component/EditKit'
 import HeaderComponent from 'component/Header'
 import SampleListComponent from 'component/SampleList'
 
+
+
 const AppComponent = (props) => {
+
+
+
   return (
     <DndProvider backend={HTML5Backend}>
       {props.showSplash &&
-        <div className="App">
+        <div className="App is-flex is-flex-direction-column">
           <HeaderComponent />
-          <div className="splash is-medium">
-            <p>Make sure your SamplePad SD card is inserted into your computer. Click the "Load SD Card" button below and select the root directory of the SD card</p>
-            <p><button className="button is-link is-medium" onClick={props.loadCard}>Load SD Card</button></p>
+
+          <div className="SDCardTile is-medium">
+            <h2 className='title is-4 is-medium'>Load your SD card</h2>
+            <p>Please select a SD Card from the file browser.</p>
+            <button className="button is-link is-medium" onClick={props.loadCard}> <i className='glyphicon glyphicon-folder-open'></i> </button>
           </div>
         </div>
       }
 
       {!props.showSplash &&
-        <div className="App">
+        <div className="App is-flex is-flex-direction-column">
           <ModalComponent />
           <NoticeComponent notices={props.notices} />
           <HeaderComponent />
@@ -46,7 +53,9 @@ const AppComponent = (props) => {
               }
 
               {props.hasActiveKit &&
-                <EditKitComponent className="has-shadow " kitId={props.activeKitId} />
+                <div className='container'>
+                  <EditKitComponent className="has-shadow " kitId={props.activeKitId} />
+                </div>
               }
             </div>
           </section>

@@ -1,5 +1,5 @@
 /* Global imports */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { connect } from 'react-redux'
 
 /* App imports */
@@ -12,20 +12,28 @@ import SamplePlayerComponent from 'component/SamplePlayer'
 import 'css/SampleList.css'
 import { getKitAndPadsFromFile } from 'util/kitFile';
 import PurgeSampleModal from './PurgeSampleModal';
-/* Electron imports */
-const { fs } = window.api;
 
-// converted to functional component
-const SampleList = ({ samples, importSamples, clear, kits, drive }) => {
+
+
+const SampleList = ({ samples, importSamples, clear, kits, drive, deleteSample, refresh }) => {
   const [filter, setFilter] = useState('');
   const [modal, setModal] = useState(false)
   const [filenameKitMap, setFilenameKitMap] = useState({})
   const handleRefresh = (e) => {
     console.log(e);
-    setModal(true)
+    refresh()
   };
 
-  const getKitMap = () => {
+  const removeSample = (fileName) => {
+    console.log("Removing sample", fileName)
+    deleteSample(fileName)
+  }
+
+  const closeModal = () => {
+    setModal(false)
+  }
+
+  const getKitMap = useCallback(() => {
     const filenameMap = {}
     for (const kitID of kits.ids) {
       let kit = kits.models[kitID];
@@ -36,17 +44,14 @@ const SampleList = ({ samples, importSamples, clear, kits, drive }) => {
       }
     }
     setFilenameKitMap(filenameMap)
-  }
+  }, [drive, kits.ids, kits.models]);
+
   useEffect(() => {
     // find the kit name for samples
     getKitMap()
 
-  }, [])
+  }, [getKitMap])
 
-  const removeSample = (e) => {
-    // remove the sample from disk...
-    console.log(e)
-  }
   const filterSamples = (filter) => {
     setFilter(filter);
   };
@@ -59,10 +64,8 @@ const SampleList = ({ samples, importSamples, clear, kits, drive }) => {
             <div className="level-left">
               <div className="level-item">
                 <p className="is-size-7">
-
                   Samples on card:   ({samples ? samples.length : 0}/{Drive.MAX_SAMPLES})
                 </p>
-
               </div>
             </div>
             <button
@@ -86,13 +89,10 @@ const SampleList = ({ samples, importSamples, clear, kits, drive }) => {
               placeholder="Search"
               onChange={(e) => filterSamples(e.target.value)}
             />
-
           </div>
         </div>
-        {/* <PurgeSampleModal isModalOpen={modal} setModal={setModal} /> */}
-
+        <PurgeSampleModal isModalOpen={modal} setModal={setModal} closeModal={closeModal} />
         <div className="samples">
-
           {samples &&
             samples.sort((a, b) => {
               const kitNameA = filenameKitMap[a] || '';  // Handle cases where the kit name is not available
@@ -108,17 +108,14 @@ const SampleList = ({ samples, importSamples, clear, kits, drive }) => {
                       highlightKeyword={filter}
                       draggable={true}
                       removable={!filenameKitMap[file]}
-                      removeSample={removeSample}
+                      removeSample={() => removeSample(file)}
                     />
                   </SamplePlayerComponent>
                 )}
-
                 {!samples && <div className='panel-heading'>No samples found...</div>}
               </span>
             ))}
-
         </div>
-
         <div className="panel-block">
           <button
             className="button is-link is-outlined is-fullwidth"
@@ -128,10 +125,7 @@ const SampleList = ({ samples, importSamples, clear, kits, drive }) => {
           </button>
         </div>
       </nav>
-
-
     </section>
-
   );
 };
 
@@ -152,6 +146,12 @@ const mapDispatchToProps = (dispatch) => {
     clear: () => {
       dispatch(SampleStore.clear());
     },
+    refresh: () => {
+      dispatch(SampleStore.refresh());
+    },
+    deleteSample: (fileName) => {
+      dispatch(SampleStore.deleteSample(fileName));
+    }
   };
 };
 

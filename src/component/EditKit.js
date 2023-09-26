@@ -28,8 +28,7 @@ const EditKit = (props) => {
   return (
 
     <div className="kit">
-
-      <div className="is-size-2"> {props.originalKitName}</div>
+      <div className="is-size-1"> {props.originalKitName}</div>
       <div className="field is-grouped">
         <div {...kitNameControlProps} className={"control " + ((props.hasKitNameError) ? 'has-tooltip-bottom' : '')}>
           <input
@@ -45,15 +44,11 @@ const EditKit = (props) => {
             props.showSaveAsNew &&
             <button className="button" onClick={props.saveNewKit}>Save as New Kit</button>
           }
-
-
         </div>
       </div>
-
       {props.showSamplerackEditor &&
         <SamplerackEditor kitId={props.kitId} />
       }
-
       {props.showSamplepadProEditor &&
         <>
           <Collapsible trigger='Pad Editor' triggerTagName='div' transitionTime={200} open={true}>
@@ -65,7 +60,6 @@ const EditKit = (props) => {
         </>
       }
     </div >
-
   );
 }
 

@@ -19,6 +19,12 @@ module.exports = {
   readFileAsString: (file) => {
     return fs.readFileSync(file, "utf8")
   },
+  readFileAsWavSurferBlob: (file) => {
+    const buffer = fs.readFileSync(file);
+    console.log(buffer)
+    const blob = new window.Blob([new Uint8Array(buffer)]);
+    return blob;
+  },
   readFileAsArrayByLine: (file) => {
     return fs.readFileSync(file, "utf8").split("\n");
   },
@@ -52,6 +58,14 @@ module.exports = {
   },
 
   deleteFile: (filePath) => {
-    return fs.rmSync(filePath)
+    try {
+      fs.unlinkSync(filePath)
+      console.log("Deleted file", filePath)
+      return true
+    } catch (error) {
+      console.log("Error deleting file", filePath, error)
+      return false
+    }
+
   }
 }

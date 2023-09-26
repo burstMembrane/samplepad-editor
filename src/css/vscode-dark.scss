@@ -1,13 +1,12 @@
-// material-dark.scss
-
 // Import Bulma
 @import "../node_modules/bulma/bulma.sass";
 
-// Override Bulma variables to Apple Dark Mode colors
-$primary: #2b2b2b; // Apple dark grey
+// Override Bulma variables to One Dark Pro colors
+$dark: #282c34; // One Dark Pro background
+$bg-dark: #1e2127; // One Dark Pro secondary background
+$primary: lighten($dark, 10%); // One Dark Pro blue
 $primary-invert: findColorInvert($primary);
-$dark: #1e1e1e; // Apple dark background
-$bg-dark: #2c2c2e; // Apple dark secondary background
+
 $grey-darker: #3a3a3c;
 $grey-dark: #2c2c2e;
 $grey: #3a3a3c;
@@ -20,12 +19,12 @@ $light-invert: findColorInvert($light);
 $text: #d0d0d0;
 
 $border: 1px solid rgba(255, 255, 255, 0.2);
-// warnings
-// Override Bulma's color variables with Apple Dark Mode colors
-$green: #30d15880; // Apple dark mode green
-$red: #ff453a; // Apple dark mode red
-$yellow: #ffd60a; // Apple dark mode yellow
-$blue: #0a84ff; // Apple dark mode blue
+
+// Override Bulma's color variables with One Dark Pro colors
+$green: #98c379; // One Dark Pro green
+$red: #e06c75; // One Dark Pro red
+$yellow: #e5c07b; // One Dark Pro yellow
+$blue: #61afef; // One Dark Pro blue
 
 // root style
 html,
@@ -37,18 +36,18 @@ body {
 
 // Customize navbar
 .navbar {
-  background-color: $grey-dark;
+  background-color: $bg-dark;
   color: $text;
 }
 
-// Define Apple Dark Mode colors
-$dark-background: #1e1e1e; // Apple dark background
-$outline-border-color: #2c2c2e; // Slightly lighter grey for the border
+// Define One Dark Pro colors
+$dark-background: #282c34; // One Dark Pro background
+$outline-border-color: #1e2127; // Slightly lighter grey for the border
 
 // Define common styles for buttons
 @mixin button-styles($background-color, $text-color) {
   border: 1px solid $outline-border-color;
-  border-radius: 8px; // Rounded corners, typical in Apple design
+  border-radius: 8px; // Rounded corners, typical in One Dark Pro design
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); // Optional: subtle shadow for depth
   background-color: $background-color;
   color: $text-color;
@@ -85,8 +84,7 @@ $outline-border-color: #2c2c2e; // Slightly lighter grey for the border
 
   &.is-link.is-outlined,
   &.is-outlined {
-    border: 1px solid $outline-border-color;
-    @include button-styles($primary, $grey-lighter);
+    @include button-styles($primary-invert, $grey-lighter);
   }
 }
 
@@ -95,8 +93,8 @@ $outline-border-color: #2c2c2e; // Slightly lighter grey for the border
 }
 
 .SampleList {
-  background-color: $grey-dark;
-  border-color: $grey-dark;
+  background-color: $bg-dark;
+  border-color: $bg-dark;
   color: $primary-invert;
 }
 
@@ -161,10 +159,10 @@ $hero-dark-color: $white;
   color: $primary-invert;
 }
 
-// top hero
 .hero-body {
   background-color: $hero-dark-background-color;
   color: $hero-dark-color;
+
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
@@ -180,31 +178,31 @@ $panel-dark-border-color: $grey;
 .select {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); // Optional: subtle shadow for depth
   &.is-small {
-    background-color: $grey-dark;
-    border-color: $grey-dark;
+    background-color: $bg-dark;
+    border-color: $bg-dark;
     color: $primary-invert;
     text-align: center;
   }
 }
 .select {
   .control {
-    background-color: $grey-dark;
-    border-color: $grey-dark;
+    background-color: $bg-dark;
+    border-color: $bg-dark;
     color: $primary-invert;
   }
 
   select {
     border: none;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); // Optional: subtle shadow for depth
-    background-color: $grey-dark;
+    background-color: $bg-dark;
     color: $primary-invert;
   }
 }
 
 // search box
 .input {
-  background-color: $grey-dark;
-  border-color: $grey-dark;
+  background-color: $bg-dark;
+  border-color: $bg-dark;
   color: $primary-invert;
 }
 
@@ -215,7 +213,7 @@ $panel-dark-border-color: $grey;
 
   // Style panel heading
   .panel-heading {
-    background-color: $grey-dark;
+    background-color: $bg-dark;
     color: $primary-invert;
   }
 
@@ -235,8 +233,8 @@ $panel-dark-border-color: $grey;
 }
 
 .mgrpIcon {
-  background-color: $grey-dark;
-  border-color: $grey-dark;
+  background-color: $bg-dark;
+  border-color: $bg-dark;
   color: $primary-invert;
 }
 
@@ -285,6 +283,6 @@ $scrollbar-track-color: transparent;
 }
 
 .modal {
-  border-color: $grey-dark;
+  border-color: $bg-dark;
   color: $primary-invert;
 }
